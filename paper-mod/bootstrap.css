@@ -7504,9 +7504,7 @@ input[type="checkbox"]:disabled:checked:after,
 .has-warning .input-group-addon,
 .has-error .input-group-addon,
 .has-success .input-group-addon {
-  color: #666666;
   border-color: transparent;
-  background-color: #d3dfdf;
 }
 .form-group-lg select,
 .form-group-lg select.form-control {
