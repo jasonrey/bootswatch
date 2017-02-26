@@ -46,22 +46,6 @@
   &-brand {
     font-size: 24px;
   }
-
-  &-inverse {
-    .navbar-form {
-
-      input[type=text],
-      input[type=password] {
-        color: #fff;
-        .box-shadow(inset 0 -1px 0 @navbar-inverse-link-color);
-        .placeholder(@navbar-inverse-link-color);
-
-        &:focus {
-          .box-shadow(inset 0 -2px 0 #fff);
-        }
-      }
-    }
-  }
 }
 
 // Buttons ====================================================================
@@ -91,12 +75,12 @@
 #btn(info,@btn-info-bg,@btn-info-color);
 #btn(warning,@btn-warning-bg,@btn-warning-color);
 #btn(danger,@btn-danger-bg,@btn-danger-color);
-#btn(link,#fff,@btn-default-color);
+#btn(link,#eee,@btn-default-color);
 
 .btn {
   text-transform: uppercase;
-  border: none;
-  .box-shadow(none);
+  // border: none;
+  // .box-shadow(1px 1px 4px rgba(0,0,0,.4));
   .transition(all 0.4s);
 
   &-link {
@@ -144,6 +128,11 @@
   .btn-group + .btn,
   .btn-group + .btn-group {
     margin-left: 0;
+    border-left: 0;
+
+    .btn, .btn-group {
+      border-left: 0;
+    }
   }
 
   &-vertical {
@@ -152,6 +141,7 @@
     > .btn-group + .btn,
     > .btn-group + .btn-group {
       margin-top: 0;
+      border-top: 0;
     }
   }
 }
@@ -189,10 +179,6 @@ a {
 
 // Forms ======================================================================
 
-label {
-  font-weight: normal;
-}
-
 textarea,
 textarea.form-control,
 input.form-control,
@@ -206,20 +192,21 @@ input[type=number],
 [type=tel].form-control,
 [contenteditable].form-control {
   padding: 0 5px;
-  border: none;
-  border-radius: 0;
-  -webkit-appearance: none;
-  .box-shadow(inset 0 -1px 0 #ddd);
+  // border: none;
+  border-radius: @input-border-radius;
+  // -webkit-appearance: none;
+  // .box-shadow(inset 0 -1px 0 #ddd);
   font-size: 16px;
+  box-shadow: none;
 
   &:focus {
-    .box-shadow(inset 0 -2px 0 @brand-primary);
+    // .box-shadow(inset 0 -2px 0 @brand-primary);
   }
 
   &[disabled],
   &[readonly] {
     .box-shadow(none);
-    border-bottom: 1px dotted #ddd;
+    border: 1px dotted @input-border;
   }
 
   &.input {
@@ -235,8 +222,7 @@ input[type=number],
 
 select,
 select.form-control {
-  border: 0;
-  border-radius: 0;
+  border-radius: @input-border-radius;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -246,7 +232,7 @@ select.form-control {
   background-size: 13px;
   background-repeat: no-repeat;
   background-position: right center;
-  .box-shadow(inset 0 -1px 0 #ddd);
+  .box-shadow(none);
   font-size: 16px;
   line-height: 1.5;
 
@@ -265,7 +251,7 @@ select.form-control {
   }
 
   &:focus {
-    .box-shadow(inset 0 -2px 0 @brand-primary);
+    .box-shadow(none);
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAMAAACelLz8AAAAJ1BMVEUhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISF8S9ewAAAADHRSTlMAAgMJC0uWpKa6wMxMdjkoAAAANUlEQVR4AeXJyQEAERAAsNl7Hf3X6xt0QL6JpZWq30pdvdadme+0PMdzvHm8YThHcT1H7K0BtOMDniZhWOgAAAAASUVORK5CYII=);
   }
 
@@ -406,51 +392,9 @@ input[type="checkbox"],
   }
 }
 
-.has-warning {
-  input:not([type=checkbox]),
-  .form-control,
-  input.form-control[readonly],
-  input[type=text][readonly],
-  [type=text].form-control[readonly],
-  input:not([type=checkbox]):focus,
+.has-error, .has-warning, .has-success {
   .form-control:focus {
-    border-bottom: none;
-    .box-shadow(inset 0 -2px 0 @brand-warning);
-  }
-}
-
-.has-error {
-  input:not([type=checkbox]),
-  .form-control,
-  input.form-control[readonly],
-  input[type=text][readonly],
-  [type=text].form-control[readonly],
-  input:not([type=checkbox]):focus,
-  .form-control:focus {
-    border-bottom: none;
-    .box-shadow(inset 0 -2px 0 @brand-danger);
-  }
-}
-
-.has-success {
-  input:not([type=checkbox]),
-  .form-control,
-  input.form-control[readonly],
-  input[type=text][readonly],
-  [type=text].form-control[readonly],
-  input:not([type=checkbox]):focus,
-  .form-control:focus {
-    border-bottom: none;
-    .box-shadow(inset 0 -2px 0 @brand-success);
-  }
-}
-
-// Remove the Bootstrap feedback styles for input addons
-.input-group-addon {
-  .has-warning &, .has-error &, .has-success & {
-    // color: @input-color;
-    border-color: transparent;
-    // background-color: @input-group-addon-bg;
+    box-shadow: none;
   }
 }
 
@@ -510,6 +454,14 @@ input[type="checkbox"],
 
   .dropdown-menu {
     margin-top: 0;
+  }
+}
+
+.nav {
+  .active {
+    .btn-link {
+      background-color: #dfdfdf;
+    }
   }
 }
 
@@ -608,9 +560,9 @@ input[type="checkbox"],
 }
 
 .panel {
-  border: none;
-  border-radius: 0;
-  .box-shadow(0 1px 4px rgba(0,0,0,.15));
+  // border: none;
+  border-radius: @panel-border-radius;
+  // .box-shadow(0 1px 4px rgba(0,0,0,.3));
 
   &-heading {
     border-bottom: none;
@@ -619,6 +571,22 @@ input[type="checkbox"],
   &-footer {
     border-top: none;
   }
+}
+
+.panel-success {
+  border-color: @brand-success;
+}
+
+.panel-warning {
+  border-color: @brand-warning;
+}
+
+.panel-danger {
+  border-color: @brand-danger;
+}
+
+.panel-info {
+  border-color: @brand-info;
 }
 
 .popover {
@@ -632,4 +600,8 @@ input[type="checkbox"],
       color: inherit;
     }
   }
+}
+
+.modal-content {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2)
 }

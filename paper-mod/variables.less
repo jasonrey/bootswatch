@@ -16,7 +16,7 @@
 
 @brand-primary:         #7A9E9F;
 @brand-success:         #7AC29A;
-@brand-info:            #68B3C8;
+@brand-info:            #3091B2;
 @brand-warning:         #F3BB45;
 @brand-danger:          #EB5E28;
 
@@ -103,8 +103,8 @@
 @line-height-small:         1.5;
 
 @border-radius-base:        0;
-@border-radius-large:       0;
-@border-radius-small:       0;
+@border-radius-large:       @border-radius-base;
+@border-radius-small:       @border-radius-base;
 
 //** Global color for active items (e.g., navs or dropdowns).
 @component-active-color:    #fff;
@@ -146,7 +146,7 @@
 
 @btn-default-color:              #444;
 @btn-default-bg:                 #fff;
-@btn-default-border:             transparent;
+@btn-default-border:             #ccc;
 
 @btn-primary-color:              #fff;
 @btn-primary-bg:                 @brand-primary;
@@ -172,8 +172,8 @@
 
 // Allows for customizing button radius independently from global border radius
 @btn-border-radius-base:         @border-radius-base;
-@btn-border-radius-large:        @border-radius-large;
-@btn-border-radius-small:        @border-radius-small;
+@btn-border-radius-large:        @border-radius-base;
+@btn-border-radius-small:        @border-radius-base;
 
 
 //== Forms
@@ -188,7 +188,7 @@
 //** Text color for `<input>`s
 @input-color:                    @gray;
 //** `<input>` border color
-@input-border:                   transparent;
+@input-border:                   #ddd;
 
 // TODO: Rename `@input-border-radius` to `@input-border-radius-base` in v4
 //** Default `.form-control` border radius
@@ -219,7 +219,7 @@
 @legend-border-color:            #e5e5e5;
 
 //** Background color for textual input addons
-@input-group-addon-bg:           lighten(@brand-primary, 30%);
+@input-group-addon-bg:           transparent;
 //** Border color for textual input addons
 @input-group-addon-border-color: @input-border;
 
@@ -497,19 +497,19 @@
 //## Define colors for form feedback states and, by default, alerts.
 
 @state-success-text:             @brand-success;
-@state-success-bg:               lighten(@brand-success, 20%);
+@state-success-bg:               #8EF3C5;
 @state-success-border:           darken(spin(@state-success-bg, -10), 5%);
 
 @state-info-text:                @brand-info;
-@state-info-bg:                  lighten(@brand-info, 20%);
+@state-info-bg:                  #7CE4FE;
 @state-info-border:              darken(spin(@state-info-bg, -10), 7%);
 
 @state-warning-text:             @brand-warning;
-@state-warning-bg:               lighten(@brand-warning, 20%);
+@state-warning-bg:               #FFE28C;
 @state-warning-border:           darken(spin(@state-warning-bg, -10), 5%);
 
 @state-danger-text:              @brand-danger;
-@state-danger-bg:                lighten(@brand-danger, 20%);
+@state-danger-bg:                #FF8F5E;
 @state-danger-border:            darken(spin(@state-danger-bg, -10), 5%);
 
 
@@ -702,7 +702,7 @@
 //
 //##
 
-@panel-bg:                    #fff;
+@panel-bg:                    transparent;
 @panel-body-padding:          15px;
 @panel-heading-padding:       10px 15px;
 @panel-footer-padding:        @panel-heading-padding;
@@ -714,7 +714,7 @@
 
 @panel-default-text:          @gray-dark;
 @panel-default-border:        #ddd;
-@panel-default-heading-bg:    #f5f5f5;
+@panel-default-heading-bg:    #e5e5e5;
 
 @panel-primary-text:          #fff;
 @panel-primary-border:        @brand-primary;
