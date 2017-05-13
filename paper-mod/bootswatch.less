@@ -2,6 +2,10 @@
 // Bootswatch
 // -----------------------------------------------------
 
+body {
+  background-color: #fafafa;
+}
+
 @web-font-path: "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700";
 
 .web-font(@path) {
@@ -560,9 +564,10 @@ input[type="checkbox"],
 }
 
 .panel {
-  // border: none;
+  border: 0;
   border-radius: @panel-border-radius;
-  // .box-shadow(0 1px 4px rgba(0,0,0,.3));
+  .box-shadow(0 0 8px rgba(0, 0, 0, .1));
+  background-color: white;
 
   &-heading {
     border-bottom: none;
@@ -571,22 +576,19 @@ input[type="checkbox"],
   &-footer {
     border-top: none;
   }
-}
 
-.panel-success {
-  border-color: @brand-success;
-}
+  &-default &-heading {
+    background-color: transparent;
+    font-size: 30px;
+    font-weight: 300;
+    color: #666;
+  }
 
-.panel-warning {
-  border-color: @brand-warning;
-}
-
-.panel-danger {
-  border-color: @brand-danger;
-}
-
-.panel-info {
-  border-color: @brand-info;
+  &-default &-heading &-title {
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+  }
 }
 
 .popover {
